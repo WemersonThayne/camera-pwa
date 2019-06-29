@@ -1,0 +1,14 @@
+{
+    "name": "Ionic PWA open camera no plugins",
+    "short_name": "Ionic Open Camera",
+    "start_url": "index.html",
+    "display": "standalone",
+    "orientation": "portrait",
+    "icons": [{
+      "src": "assets/imgs/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }],
+    "background_color": "#4e8ef7",
+    "theme_color": "#4e8ef7"
+  }
