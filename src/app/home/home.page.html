@@ -8,7 +8,23 @@
 
 <ion-content>
   <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+    <ion-grid>
+      <ion-row>
+        <video #video id="video" width="300" height="300" controls autoplay></video>
+        <ion-button id="snap" (click)="takePhoto()">Tack Photo</ion-button>
+      </ion-row>
+      <ion-row>
+          <!-- <canvas #canvas id="canvas" width="300" height="300"></canvas> -->
+          <!-- <img [src]="imagemURL" height="100"  /> -->
+        <!-- 
+        <ul>
+          <li *ngFor="let c of captures">
+            <img src="{{ c }}" height="50" />
+          </li>
+        </ul> -->
+
+      </ion-row>
+
+    </ion-grid>
   </div>
 </ion-content>
