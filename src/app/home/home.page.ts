@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Plugins, CameraResultType, CameraSource, CameraDirection  } from '@capacitor/core';
 
 @Component({
   selector: 'app-home',
@@ -8,13 +7,9 @@ import { Plugins, CameraResultType, CameraSource, CameraDirection  } from '@capa
 })
 export class HomePage {
 
-  // imageURL: any;
   captures: Array<any>;
   video: any;
-  constraints: any = {
-    video: true
-  };
-
+  
   constructor() {
     this.captures = [];
   }
@@ -23,30 +18,17 @@ export class HomePage {
     
   }
 
-  async takePhoto(){
-    const { Camera } = Plugins;
-      Camera.getPhoto({
-        quality: 90,
-        allowEditing: true,
-        resultType: CameraResultType.Uri,
-        correctOrientation: true,
-        direction: CameraDirection.Rear,
-        source:CameraSource.Camera,
-        saveToGallery:false
-      }).then(image => {
-        let imageUrl = image.webPath;
-        console.log(imageUrl);
-        // this.imageURL.src = imageUrl;
-      })
-  }
-
-  public ngAfterViewInit() {
+  public capture(mode) {
 
     this.video = document.getElementById('video');
 
+   let constraints: any = {
+      video: {facingMode: {exact: mode}}
+    };
+  
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
       /*setting capture only video*/
-      navigator.mediaDevices.getUserMedia(this.constraints).then((stream) => {
+      navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
         /*set stream on element*/
         this.video.srcObject = stream;
         this.video.play();
@@ -59,7 +41,7 @@ export class HomePage {
   }
 
 
-  public capture() {
+  public capture2() {
     let canvas: any = document.getElementById('canvas');
     let context: any = canvas.getContext('2d');
     // Trigger photo take

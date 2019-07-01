@@ -11,18 +11,16 @@
     <ion-grid>
       <ion-row>
         <video #video id="video" width="300" height="300" controls autoplay></video>
-        <ion-button id="snap" (click)="takePhoto()">Tack Photo</ion-button>
+        <ion-button id="snap" (click)="capture('user')">Tack Photo User</ion-button>
+        <ion-button id="snap2" (click)="capture('environment')">Tack Photo Environment</ion-button>
       </ion-row>
       <ion-row>
-          <!-- <canvas #canvas id="canvas" width="300" height="300"></canvas> -->
-          <!-- <img [src]="imagemURL" height="100"  /> -->
-        <!-- 
+          <canvas #canvas id="canvas" width="300" height="300"></canvas>       
         <ul>
           <li *ngFor="let c of captures">
             <img src="{{ c }}" height="50" />
           </li>
-        </ul> -->
-
+        </ul>
       </ion-row>
 
     </ion-grid>
